@@ -1,0 +1,13 @@
+{
+    "firstName": "kiruthiga",
+    "lastName": "karthikeyan",
+    "username": "jkirthiga",
+    "email": "kirthiga@gamil.com",
+    "password": "Keerthi@123",
+    "confirmPassword": "Keerthi@123",
+  "phone": "04353230456",
+  "gender": "Female",
+  "hobbies": [ "Travelling"],
+  "department": "Department of Engineering",
+  "additionalInfo": "Testing the form"
+  }
