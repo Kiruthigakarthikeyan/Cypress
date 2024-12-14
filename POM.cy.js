@@ -8,19 +8,17 @@ describe('Rediff Registration Form', () => {
   });
 
   it('should fill and submit the registration form', () => {
-    registrationPage.fillFirstName('John Doe');
-    registrationPage.fillRediffID('johndoe123');
+    registrationPage.fillFirstName('kiruthiga');
+    registrationPage.fillRediffID('kirthi123');
     registrationPage.checkAvailability();
     registrationPage.fillPassword('password123');
     registrationPage.fillRetypePassword('password123');
-    registrationPage.fillAlternateEmail('johndoe@example.com');
+    registrationPage.fillAlternateEmail('test@gmail.com');
     registrationPage.selectSecurityQuestion('What is the name of your first school?');
-    registrationPage.fillSecurityAnswer('ABC School');
+    registrationPage.fillSecurityAnswer('test School');
     registrationPage.selectCountry('India');
     registrationPage.fillMobileNumber('9876543210');
     registrationPage.clickCreateMyAccount();
 
-    // Add assertions as needed, for example:
-    // cy.url().should('include', 'successPage'); // Replace 'successPage' with the actual URL fragment of the success page
   });
 });
