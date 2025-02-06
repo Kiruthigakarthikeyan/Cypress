@@ -1,5 +1,4 @@
 // RESTful Booker API Tests
-
 describe('RESTful Booker API Tests', () => {
 
     let token;
