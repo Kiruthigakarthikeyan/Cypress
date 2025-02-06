@@ -1,4 +1,4 @@
-// cypress/e2e/guru99_login.cy.js
+
 const { readExcelData } = require('../support/readexcel');
 
 describe('Guru99 Login Tests with Excel Data', () => {
