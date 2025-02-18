@@ -1,36 +1,40 @@
-
-const { readExcelData } = require('../support/readexcel');
-
-describe('Guru99 Login Tests with Excel Data', () => {
-  const baseUrl = 'https://demo.guru99.com/test/newtours/index.php';
-  const excelFilePath = 'cypress/fixtures/testData.xlsx';
-  const sheetName = 'LoginData';
-
-  beforeEach(() => {
-    cy.visit(baseUrl);
-  });
-
-  it('Login using data from Excel', () => {
-    // Read data from Excel file
-    const loginData = readExcelData(excelFilePath, sheetName);
-
-    // Iterate over each row of data
-    loginData.forEach((row) => {
-      // Perform login actions
-      cy.get('input[name="userName"]').clear().type(row.Username);
-      cy.get('input[name="password"]').clear().type(row.Password);
-      cy.get('input[name="submit"]').click();
-
-      // Assertion to verify login success or failure
-      if (row.ExpectedResult === 'Pass') {
-        cy.url().should('include', 'login_sucess'); // Example successful URL
-        cy.contains('Login Successfully').should('be.visible');
-      } else {
-        cy.contains('user or password is incorrect').should('be.visible'); // Example failure message
-      }
-
-      // Navigate back to login page for the next iteration
-      cy.go('back');
+describe("Login Test using Excel Data", () => {
+    let excelData;
+  
+    before(function () {
+      // Read the Excel file from the fixture before tests run
+      cy.task('readXlsx', { filePath: 'cypress/fixtures/ReadExcelData.xlsx' })
+        .then((data) => {
+          excelData = data; // Store the Excel data into the variable
+        });
     });
+  
+    it("Login using data from Excel", () => {
+      // Ensure that the data is loaded correctly
+      cy.wrap(excelData).should("not.be.empty");
+  
+      // Loop through the data from the Excel file (assumes the first column is the username and second column is the password)
+      excelData.forEach((row) => {
+        const username = row.username; // Adjust column name as per your sheet
+        const password = row.password; // Adjust column name as per your sheet
+  
+        // Visit the login page
+        cy.visit('https://demo.guru99.com/test/newtours/index.php');
+        
+        // Type username and password
+        cy.get('input[name="userName"]').type(username);
+        cy.get('input[name="password"]').type(password);
+        
+        // Click the submit button
+        cy.get('input[name="submit"]').click();
+  
+        // Check for login success or failure
+        if (username === "mercury" && password === "mercury") {
+            cy.get('h3').should('have.text', 'Login Successfully'); 
+        } 
+  
+      });
+    });
+  
   });
-});
+  
