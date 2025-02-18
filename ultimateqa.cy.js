@@ -15,15 +15,15 @@ Cypress.on('uncaught:exception', (err) => {
       cy.get('.et_pb_button.et_pb_button_3.et_pb_bg_layout_light').click();
   
       // First form
-      cy.get('#et_pb_contact_name_0').type('Janaki');
-      cy.get('#et_pb_contact_email_0').type('janakinavanee@gmail.com');
-      cy.get('#et_pb_contact_message_0').type('This is a test code to verify this is text box');
+      cy.get('#et_pb_contact_name_0').type('Kirthiga');
+      cy.get('#et_pb_contact_email_0').type('keerthi@gmail.com');
+      cy.get('#et_pb_contact_message_0').type('Test the textbox');
       cy.get('#et_pb_contact_form_0 .et_pb_contact_submit').click();
   
       // Second form
-      cy.get('#et_pb_contact_name_1').type('Navaneeth');
-      cy.get('#et_pb_contact_email_1').type('navi7ravi@gmail.com');
-      cy.get('#et_pb_contact_message_1').type('This is test message for contact Navaneeth');
+      cy.get('#et_pb_contact_name_1').type('Test');
+      cy.get('#et_pb_contact_email_1').type('test@gmail.com');
+      cy.get('#et_pb_contact_message_1').type('Test contact');
       cy.get('#et_pb_contact_form_1 .et_pb_contact_submit').click();
     });
   
@@ -48,8 +48,8 @@ Cypress.on('uncaught:exception', (err) => {
   
     it("Enrolls in a course", () => {
         cy.wait(4000);
-      cy.get('#account-info-email').type('janakinavanee@gmail.com');
-      cy.get('#input-2').type('Janaki');
+      cy.get('#account-info-email').type('kkk@gmail.com');
+      cy.get('#input-2').type('keerthi');
       cy.get("#terms-and-privacy-checkbox").check({ force: true });
       cy.get('.top-drawer__label').click().click();
     });
@@ -58,7 +58,7 @@ Cypress.on('uncaught:exception', (err) => {
       cy.get('#menu-footer-main-menu > #menu-item-218099 > a').click();
       cy.get('#et_pb_contact_name_0').type('Janaki');
       cy.get('#et_pb_contact_email_0').type('janakinavanee@gmail.com');
-      cy.get('#et_pb_contact_message_0').should('be.visible').type('Thank you for this great website to enrich our learning capabilities', { force: true });
+      cy.get('#et_pb_contact_message_0').should('be.visible').type('Test automation', { force: true });
       cy.get('#menu-footer-main-menu > #menu-item-218097 > a').click();
       cy.get('.et_pb_social_media_follow_network_0_tb_footer > .icon').click();
       cy.wait(2000);
