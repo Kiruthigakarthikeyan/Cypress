@@ -1,15 +1,19 @@
-
-
-describe('Drag and Drop Test', () => {
-    it('should drag the Angular logo to the Drop area', () => {
-      // Visit the demo site
-      cy.visit('https://demo.automationtesting.in/Static.html');
+describe('Drag and Drop File Upload', () => {
+    beforeEach(() => {
+      cy.visit('https://the-internet.herokuapp.com/upload'); // Visit the file upload page
+    });
   
-      // Perform drag and drop
-      cy.get('#angular').drag('#droparea');
+    it('Should drag and drop a file and upload it', () => {
+      const fileName = 'test.pdf'; // File in cypress/fixtures/
   
-      // Verify the drop was successful (e.g., if text changes or another event occurs)
-      cy.get('#droparea').should('contain.text', 'Angular');
+      // Simulate drag and drop using attachFile with subjectType: 'drag-n-drop'
+      cy.get('#drag-drop-upload') // Drag and drop area selector
+        .attachFile(fileName, { subjectType: 'drag-n-drop' });
+  
+      // Click the upload button
+      cy.get('#file-submit').click();
+  
+      
     });
   });
   
