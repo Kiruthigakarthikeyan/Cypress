@@ -148,17 +148,18 @@ describe('CodenBox Practice Page Automation', () => {
        cy.get('#enabled-example-input').should('not.be.disabled');
   })
   
- /* it('handles  iframe', () => {
+  it('handles  iframe', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const iframe = document.getElementById('getiframe');
-iframe.onload = () => {
-  try {
-    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    console.log(iframeDoc.body.innerText); // Access if same-origin
-  } catch (e) {
-    console.error("Access blocked due to cross-origin restrictions:", e);
-  }
-};
-  })*/
+    if (iframe) {
+      iframe.onload = () => {
+        console.log('Iframe loaded!');
+      };
+    } else {
+      console.error('Iframe not found!');
+    }
+  });
+  })
 });
     
       
