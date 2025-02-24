@@ -1,5 +1,5 @@
 describe("Handling Tabs Demo",()=>{
-    it("Handle a tab in one screen",()=>{
+    it("Handling a tab in onescreen",()=>{
         cy.visit("https://the-internet.herokuapp.com/windows")
         cy.url().should('eq','https://the-internet.herokuapp.com/windows')
         cy.get('.example > a').should('be.visible').should('exist').invoke('removeAttr','target').click()  
@@ -10,7 +10,7 @@ describe("Handling Tabs Demo",()=>{
     })
 
 
-    it("Handle Tabs using href",()=>{
+    it("Handling Tabs using href",()=>{
         cy.visit("https://the-internet.herokuapp.com/windows")
         cy.url().should('eq','https://the-internet.herokuapp.com/windows')
         cy.get('.example > a').then((n)=>{
